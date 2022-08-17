@@ -6,6 +6,23 @@ This repository is used to read numpy array image direct from HDR and SDR video
 
 scikit-video==1.1.11
 
+### example
+
+      from hdrreader import FFmpegReader as hdrffm
+      from sdrreader import FFmpegReader as sdrffm
+      outputdict = {
+            '-pix_fmt': 'rgb48'
+        }
+      hdrt = hdrffm(videopath,outputdict = outputdict)
+      hdrv = hdrt.nextFrame()
+      for i in range(hdrt.inputframenum):
+        hdrframe = next(hdrv)  # RGB image
+
+    sdrt = sdrffm(videopath)
+    sdrv = sdrt.nextFrame()
+    for i in range(sdrt.inputframenum):
+        sdrframe = next(sdrv)
+    
 
 ## Citation
 If our work is helpful to you, please cite our paper:
