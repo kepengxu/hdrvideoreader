@@ -10,6 +10,8 @@ scikit-video==1.1.11
 
       from hdrreader import FFmpegReader as hdrffm
       from sdrreader import FFmpegReader as sdrffm
+      
+      # read hdr
       outputdict = {
             '-pix_fmt': 'rgb48'
         }
@@ -18,9 +20,10 @@ scikit-video==1.1.11
       for i in range(hdrt.inputframenum):
         hdrframe = next(hdrv)  # RGB image
 
-    sdrt = sdrffm(videopath)
-    sdrv = sdrt.nextFrame()
-    for i in range(sdrt.inputframenum):
+      # read sdr
+      sdrt = sdrffm(videopath)
+      sdrv = sdrt.nextFrame()
+      for i in range(sdrt.inputframenum):
         sdrframe = next(sdrv)
     
 
